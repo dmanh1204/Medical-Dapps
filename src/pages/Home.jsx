@@ -64,6 +64,73 @@ const Home = () => {
     }
   };
 
+  const NFTList = (props) => {
+    return (
+      <Box
+        bg="white"
+        h="290px"
+        maxW="1200px"
+        borderRadius={"8px"}
+        m={`${props.top} ${props.right} ${props.bottom} ${props.left}`}
+        p={"9px"}
+      >
+        <VStack w="full" h="43px" p={"10px"}>
+          <HStack
+            w="full"
+            h="full"
+            display={"flex"}
+            justifyContent={"space-between"}
+          >
+            <Menu closeOnSelect={false}>
+              <MenuButton w={"200px"} flex as={Button} colorScheme="blue">
+                <HStack
+                  w="full"
+                  display={"flex"}
+                  justifyContent={"space-between"}
+                >
+                  <Text>MenuItem</Text>
+                  <HamburgerIcon boxSize={6} />
+                </HStack>
+              </MenuButton>
+              <MenuList minWidth="240px">
+                <MenuOptionGroup defaultValue="asc" title="Order" type="radio">
+                  <MenuItemOption value="asc">Ascending</MenuItemOption>
+                  <MenuItemOption value="desc">Descending</MenuItemOption>
+                </MenuOptionGroup>
+                <MenuDivider />
+                <MenuOptionGroup title="Country" type="checkbox">
+                  <MenuItemOption value="email">Email</MenuItemOption>
+                  <MenuItemOption value="phone">Phone</MenuItemOption>
+                  <MenuItemOption value="country">Country</MenuItemOption>
+                </MenuOptionGroup>
+              </MenuList>
+            </Menu>
+            <Text color={"#003163"}>View all</Text>
+          </HStack>
+        </VStack>
+        <HStack m={"15px"} display={"flex"} justifyContent={"space-evenly"}>
+          {property.map((data) => (
+            <Box
+              maxW="173px"
+              h="207px"
+              p={"14px"}
+              borderWidth="1px"
+              borderColor={"gray.200"}
+              borderRadius="4px"
+              overflow="hidden"
+            >
+              <Image src={data.imageUrl} alt={data.imageAlt} mb="10px" />
+              <Box color={"#327ab9"} fontSize={"14px"}>
+                <Box w="full" mt="1">
+                  <Text>{data.imageAlt}</Text>
+                </Box>
+              </Box>
+            </Box>
+          ))}
+        </HStack>
+      </Box>
+    );
+  };
   const property = [
     {
       imageUrl: "https://bit.ly/2Z4KKcF",
@@ -92,98 +159,10 @@ const Home = () => {
   ];
 
   return (
-    <Box bg="white" h="290px" borderRadius={"8px"} m={"109"} p={"9px"}>
-      <VStack w="full" h="43px" p={"10px"}>
-        <HStack
-          w="full"
-          h="full"
-          display={"flex"}
-          justifyContent={"space-between"}
-        >
-          <Menu closeOnSelect={false}>
-            <MenuButton w={"200px"} flex as={Button} colorScheme="blue">
-              <HStack
-                w="full"
-                display={"flex"}
-                justifyContent={"space-between"}
-              >
-                <Text>MenuItem</Text>
-                <HamburgerIcon boxSize={6} />
-              </HStack>
-            </MenuButton>
-            <MenuList minWidth="240px">
-              <MenuOptionGroup defaultValue="asc" title="Order" type="radio">
-                <MenuItemOption value="asc">Ascending</MenuItemOption>
-                <MenuItemOption value="desc">Descending</MenuItemOption>
-              </MenuOptionGroup>
-              <MenuDivider />
-              <MenuOptionGroup title="Country" type="checkbox">
-                <MenuItemOption value="email">Email</MenuItemOption>
-                <MenuItemOption value="phone">Phone</MenuItemOption>
-                <MenuItemOption value="country">Country</MenuItemOption>
-              </MenuOptionGroup>
-            </MenuList>
-          </Menu>
-          <Text color={"#003163"}>View all</Text>
-        </HStack>
-      </VStack>
-      <HStack p={"10px"} display={"flex"} justifyContent={"space-evenly"}>
-        {property.map((data) => (
-          <Box
-            maxW="173px"
-            h="197px"
-            p={"14px"}
-            borderWidth="1px"
-            borderColor={"gray.200"}
-            borderRadius="4px"
-            overflow="hidden"
-          >
-            <Image src={data.imageUrl} alt={data.imageAlt} mb="10px" />
-            <Box color={"#327ab9"} fontSize={"14px"}>
-              <Box w="full" mt="1">
-                <Text>{data.imageAlt}</Text>
-              </Box>
-            </Box>
-          </Box>
-        ))}
-      </HStack>
-      {/* <Box textAlign={"center"} color={"brown"} pb={4}>
-        <input type="file" onChange={(e) => setNFT(e.target.files[0])} />
-        <Button
-          colorScheme="purple"
-          isLoading={minting}
-          onClick={() => handleMintNFT()}
-        >
-          Mint
-        </Button>
-      </Box> */}
-      {/* <Text color="red.500" fontSize="xl">
-        Ordering
-      </Text> */}
-      {/* <Grid templateColumns={"repeat(3,1fr)"} gap={8}>
-        {nftOrdering.map((e, idx) => (
-          <Link to={`/nft/${e.id?.toString()}`} key={idx} cursor={"pointer"}>
-            <Image border={"1px solid"} src={e.url} />
-            <Box textAlign={"center"}>ID: {e.id?.toString()}</Box>
-            <Box textAlign={"center"}>
-              Price:{" "}
-              {e.price?.toString() ? formatEther(e.price.toString()) : ""} BNB
-            </Box>
-          </Link>
-        ))}
-      </Grid>
-      <hr />
-      <Text color="red.500" fontSize="xl">
-        Mint
-      </Text>
-      <Grid templateColumns={"repeat(3,1fr)"} gap={8}>
-        {owners.map((e, idx) => (
-          <Link to={`/nft/${e.id?.toString()}`} key={idx} cursor={"pointer"}>
-            <Image border={"1px solid"} src={e.url} />
-            <Box textAlign={"center"}>ID: {e.id?.toString()}</Box>
-          </Link>
-        ))}
-      </Grid> */}
+    <Box>
+      <NFTList top="109px" right="109px" bottom="30px" left="109px" />
+      <NFTList top="30px" right="109px" bottom="30px" left="109px" />
+      <NFTList top="30px" right="109px" bottom="30px" left="109px" />
     </Box>
   );
 };

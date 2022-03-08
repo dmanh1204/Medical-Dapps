@@ -15,7 +15,7 @@ import { useWallet } from "connectors/hooks";
 import { useActiveWeb3React } from "hooks/useActiveWeb3React";
 import React from "react";
 import { Link } from "react-router-dom";
-
+import NFTDetail from "pages/NFTDetail";
 export const Layout = ({ children }) => {
   const { account } = useActiveWeb3React();
   const { connect } = useWallet();
@@ -77,17 +77,24 @@ export const Layout = ({ children }) => {
           {"Lorem ipsum dolor, sit amet".toUpperCase()}
         </Text>
         {account ? (
-          // <Link to={`/${account}`}>
-          //   <Button colorScheme="purple">{account}</Button>
-          // </Link>
-          <Button colorScheme="purple">{account}</Button>
+          <Link to={`/${account}`}>
+            <Button colorScheme="purple">{account}</Button>
+          </Link>
         ) : (
+          // <Button colorScheme="purple">{account}</Button>
           <Button colorScheme="purple" onClick={onOpen}>
             Connect wallet
           </Button>
         )}
       </HStack>
-      <Box minH="calc(100vh - 6em)" px="8" py="4" pos="relative">
+      <Box
+        minH="calc(100vh - 6em)"
+        px="8"
+        py="4"
+        pos="relative"
+        display={"flex"}
+        justifyContent={"center"}
+      >
         {children}
       </Box>
     </Box>

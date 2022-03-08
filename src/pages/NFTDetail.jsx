@@ -8,7 +8,20 @@ import {
   Input,
   InputGroup,
   InputRightAddon,
+  Stack,
+  VStack,
+  Text,
+  Center,
+  Table,
+  Thead,
+  Tbody,
+  Tfoot,
+  Tr,
+  Th,
+  Td,
+  TableCaption,
 } from "@chakra-ui/react";
+import { EmailIcon } from "@chakra-ui/icons";
 import { formatEther } from "ethers/lib/utils";
 import { useActiveWeb3React } from "hooks/useActiveWeb3React";
 import React, { useEffect } from "react";
@@ -89,10 +102,87 @@ const NFTDetail = () => {
   };
 
   return (
-    <Grid templateColumns={"repeat(2,1fr)"} gap={8}>
-      <Image border={"1px solid"} src={nftInfo?.url} />
-      <Box>
-        <Grid color="red.500" templateColumns={"repeat(6,1fr)"} gap={4}>
+    <Grid
+      bgColor={"white"}
+      borderRadius={"10px"}
+      templateColumns={"repeat(3,3fr)"}
+      w="1190px"
+      gap={2}
+    >
+      <Box w={"410px"} h={"265px"} border="1px" borderRadius={"10px"}>
+        <Image
+          src={nftInfo?.url}
+          alt=""
+          w={"410px"}
+          h={"265px"}
+          objectFit="fill"
+          p={6}
+        />
+      </Box>
+      <GridItem colSpan={2}>
+        <Box fontSize={"38px"} fontWeight={400} color={"black"}>
+          <Text>Lorem ipsum dolor</Text>
+        </Box>
+        <Box
+          border="1px"
+          borderRadius={"10px"}
+          borderColor={"gray.500"}
+          h="51px"
+          w="256px"
+          display={"flex"}
+          justifyContent={"center"}
+          color={"black"}
+          fontSize={"24px"}
+          fontWeight={700}
+          p={8}
+          mb={"10px"}
+        >
+          <Center>
+            <Text>30.000.000 VND</Text>
+          </Center>
+        </Box>
+        <HStack borderBottom={"1px solid gray"} pb={4}>
+          <Button leftIcon={<EmailIcon />} colorScheme="teal" variant="solid">
+            Email
+          </Button>
+          <Button leftIcon={<EmailIcon />} colorScheme="teal" variant="solid">
+            Email
+          </Button>
+          <Button leftIcon={<EmailIcon />} colorScheme="teal" variant="solid">
+            Email
+          </Button>
+        </HStack>
+        <Box color={"black"}>
+          <Table variant="simple" borderColor={"gray.200"}>
+            <Thead border="1px solid black">
+              <Tr bgColor={"lightblue"}>
+                <Th color={"white"}>Thông tin chính</Th>
+                <Th></Th>
+              </Tr>
+            </Thead>
+            <Tbody border="1px solid black">
+              <Tr>
+                <Td border="1px solid black">inches</Td>
+                <Td>millimetres (mm)</Td>
+              </Tr>
+              <Tr bgColor={"gray.200"}>
+                <Td border="1px solid black">feet</Td>
+                <Td>centimetres (cm)</Td>
+              </Tr>
+              <Tr>
+                <Td border="1px solid black">yards</Td>
+                <Td>metres (m)</Td>
+              </Tr>
+            </Tbody>
+            <Tfoot border="1px solid black">
+              <Tr bgColor={"gray.200"}>
+                <Th border="1px solid black">To convert</Th>
+                <Th>into</Th>
+              </Tr>
+            </Tfoot>
+          </Table>
+        </Box>
+        {/* <Grid color="red.500" templateColumns={"repeat(6,1fr)"} gap={4}>
           <Box>ID: </Box>
           <GridItem colSpan={5}>{nftId.toString()}</GridItem>
           <Box>Owner: </Box>
@@ -149,8 +239,8 @@ const NFTDetail = () => {
               </Button>
             )}
           </GridItem>
-        </Grid>
-      </Box>
+        </Grid> */}
+      </GridItem>
     </Grid>
   );
 };
