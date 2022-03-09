@@ -81,7 +81,7 @@ export const Layout = ({ children }) => {
             <Button colorScheme="purple">{account}</Button>
           </Link>
         ) : (
-          // <Button colorScheme="purple">{account}</Button>
+          // <Button   colorScheme="purple">{account}</Button>
           <Button colorScheme="purple" onClick={onOpen}>
             Connect wallet
           </Button>
@@ -97,6 +97,7 @@ export const Layout = ({ children }) => {
       >
         {children}
       </Box>
+      <Box w="100%" h="365px" bgColor={"purple"}></Box>
     </Box>
   );
 };

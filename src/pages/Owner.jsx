@@ -1,10 +1,114 @@
-import { Box, Grid, Image } from "@chakra-ui/react";
+import {
+  Box,
+  Grid,
+  Image,
+  VStack,
+  HStack,
+  Text,
+  Button,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  MenuItemOption,
+  MenuGroup,
+  MenuOptionGroup,
+  MenuDivider,
+  Center,
+  InputGroup,
+  Input,
+  InputRightElement,
+  InputLeftElement,
+  GridItem,
+} from "@chakra-ui/react";
+import { InfoIcon } from "@chakra-ui/icons";
 import { useActiveWeb3React } from "hooks/useActiveWeb3React";
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getOwners } from "utils/callContract";
+
+const NFTList = () => {
+  return (
+    <GridItem
+      w="100%"
+      h="496px"
+      bg="transparent"
+      border="1px"
+      borderRadius={"5px"}
+      borderColor={"gray.200"}
+      p={"14px"}
+    >
+      <VStack>
+        <Center>
+          <Box boxSize={"180px"}>
+            <Image src="https://bit.ly/dan-abramov" alt="Dan Abramov" />
+          </Box>
+        </Center>
+        <Box>
+          <Text color={"#1890ff"}>
+            <b>Máy xét nghiệm sinh hóa tự động - BS-360E</b>
+          </Text>
+          <Text color={"gray.500"} fontSize={"14px"}>
+            <b>Model</b>: BS-360E
+          </Text>
+          <Text color={"gray.500"} fontSize={"14px"}>
+            <b>HSX</b>: Shenzhen Mindray Bio-Medical Electronics Co., Ltd.
+          </Text>
+          <Text color={"gray.500"} fontSize={"14px"}>
+            <b>Công ty</b>: Công ty TNHH Vạn Niên
+          </Text>
+          <Text color={"red.500"} fontSize={"24px"}>
+            <b>
+              530.000.000<sup>VND</sup>
+            </b>
+          </Text>
+          <Text color={"black"} fontSize={"14px"}>
+            (Giá đã bao gồm VAT)
+          </Text>
+          <Button
+            border="1px"
+            borderColor={"9dc2ff"}
+            bgColor={"white"}
+            colorScheme="teal"
+            leftIcon={<InfoIcon />}
+            variant="solid"
+          >
+            Chi tiết thiết bị
+          </Button>
+        </Box>
+      </VStack>
+    </GridItem>
+  );
+};
+
+const property = [
+  {
+    imageUrl: "https://bit.ly/2Z4KKcF",
+    imageAlt: "Rear view of modern home with pool",
+  },
+  {
+    imageUrl: "https://bit.ly/2Z4KKcF",
+    imageAlt: "Rear view of modern home with pool",
+  },
+  {
+    imageUrl: "https://bit.ly/2Z4KKcF",
+    imageAlt: "Rear view of modern home with pool",
+  },
+  {
+    imageUrl: "https://bit.ly/2Z4KKcF",
+    imageAlt: "Rear view of modern home with pool",
+  },
+  {
+    imageUrl: "https://bit.ly/2Z4KKcF",
+    imageAlt: "Rear view of modern home with pool",
+  },
+  {
+    imageUrl: "https://bit.ly/2Z4KKcF",
+    imageAlt: "Rear view of modern home with pool",
+  },
+];
 
 const Owner = () => {
   const { account } = useParams();
@@ -21,14 +125,23 @@ const Owner = () => {
 
   return (
     <Box>
-      <Box pb={4}>Account: {account}</Box>
-      <Grid templateColumns={"repeat(3,1fr)"} gap={8}>
-        {owners.map((e, idx) => (
-          <Link to={`/nft/${e.id?.toString()}`} key={idx} cursor={"pointer"}>
-            <Image border={"1px solid"} src={e.url} />
-            <Box textAlign={"center"}>ID: {e.id?.toString()}</Box>
-          </Link>
-        ))}
+      <Grid
+        bg="white"
+        maxW="1200px"
+        borderRadius={"8px"}
+        m={"109px 109px 30px 109px"}
+        p={"9px"}
+        templateColumns="repeat(4, 1fr)"
+        gap={6}
+      >
+        <NFTList />
+        <NFTList />
+        <NFTList />
+        <NFTList />
+        <NFTList />
+        <NFTList />
+        <NFTList />
+        <NFTList />
       </Grid>
     </Box>
   );
