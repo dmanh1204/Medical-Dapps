@@ -1,6 +1,6 @@
 import { Button } from "@chakra-ui/button";
 import { useDisclosure } from "@chakra-ui/hooks";
-import { Box, Grid, HStack, Text, VStack } from "@chakra-ui/layout";
+import { Box, Grid, HStack, Center, Text, VStack } from "@chakra-ui/layout";
 import {
   Modal,
   ModalBody,
@@ -15,7 +15,8 @@ import { useWallet } from "connectors/hooks";
 import { useActiveWeb3React } from "hooks/useActiveWeb3React";
 import React from "react";
 import { Link } from "react-router-dom";
-import NFTDetail from "pages/NFTDetail";
+import LocationIcon from "../../assets/images/location.png";
+import PhoneIcon from "../../assets/images/phone.png";
 export const Layout = ({ children }) => {
   const { account } = useActiveWeb3React();
   const { connect } = useWallet();
@@ -97,7 +98,57 @@ export const Layout = ({ children }) => {
       >
         {children}
       </Box>
-      <Box w="100%" h="365px" bgColor={"purple"}></Box>
+      <Box w="100%" h="365px" bgColor={"#392c86"}>
+        <HStack padding={"51px 15px 31px"} m={"0px 182px"}>
+          <Box mr={"50px"}>
+            <Text m={"10px 0px"} fontSize={"20px"} color={"#26a9e0"}>
+              <b>{"Bộ y tế".toUpperCase()}</b>
+            </Text>
+            <Box color="white !important" display={"flex"}>
+              <Center>
+                <Image
+                  color={"white"}
+                  boxSize={"20px"}
+                  src={LocationIcon}
+                  mr={"5px"}
+                  alt=""
+                />
+                <Text>Địa chỉ: 138A Giảng Võ, Ba Đình, Hà Nội</Text>
+              </Center>
+            </Box>
+            <Box color="white !important" display={"flex"}>
+              <Center>
+                <Image
+                  color={"white"}
+                  boxSize={"20px"}
+                  src={PhoneIcon}
+                  alt=""
+                  mr="5px"
+                />
+                <Text>Điện thoại: 024 6273 2272</Text>
+              </Center>
+            </Box>
+            <Text color="white !important" m={"10px 0px"} fontSize={"20px"}>
+              <b>{"Hotline kỹ thuật".toUpperCase()}</b>
+            </Text>
+            <Text color="white !important">
+              Địa chỉ: 138A Giảng Võ, Ba Đình, Hà Nội
+            </Text>
+            <Text color="white !important">Line 1: 0931 327 757</Text>
+          </Box>
+          <Box color="white !important">
+            <Text m={"10px 0px"} fontSize={"20px"}>
+              <b>{"Hỗ trợ nghiệp vụ".toUpperCase()}</b>
+            </Text>
+            <Text>Bộ Y tế (Vụ Trang thiết bị và Công trình y tế)</Text>
+            <Text>Email: congkhaigiatbyt@moh.gov.vn</Text>
+            <Text>Điện thoại: 024 6273 2272</Text>
+            <Text>Hỗ trợ công khai giá TBYT: https://zalo.me/g/yupogf644</Text>
+            <Text>Hỗ trợ công khai giá VTYT: https://zalo.me/g/nsavsd732</Text>
+            <Text>Hỗ trợ công khai giá IVD: https://zalo.me/g/pxdxjo397</Text>
+          </Box>
+        </HStack>
+      </Box>
     </Box>
   );
 };

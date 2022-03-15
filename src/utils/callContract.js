@@ -11,7 +11,6 @@ export const mintNFT = async (library, account, nft) => {
       account
     );
     const url = await uploadIPFS(nft);
-    console.log(url);
     return callContract(nftMarketplaceContract, NFT_MARKETPLACE_METHODS.mint, [
       account,
       url,

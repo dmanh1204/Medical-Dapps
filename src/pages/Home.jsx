@@ -6,14 +6,6 @@ import {
   Button,
   Grid,
   Image,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  MenuItemOption,
-  MenuGroup,
-  MenuOptionGroup,
-  MenuDivider,
   Center,
   InputGroup,
   Input,
@@ -21,13 +13,7 @@ import {
   InputLeftElement,
   GridItem,
 } from "@chakra-ui/react";
-import {
-  HamburgerIcon,
-  SearchIcon,
-  CloseIcon,
-  EmailIcon,
-  InfoIcon,
-} from "@chakra-ui/icons";
+import { SearchIcon, CloseIcon, EmailIcon, InfoIcon } from "@chakra-ui/icons";
 import { formatEther } from "ethers/lib/utils";
 import { useActiveWeb3React } from "hooks/useActiveWeb3React";
 import React from "react";
@@ -77,55 +63,58 @@ const Home = () => {
 
   const NFTList = () => {
     return (
-      <GridItem
-        w="100%"
-        h="496px"
-        bg="transparent"
-        border="1px"
-        borderRadius={"5px"}
-        borderColor={"gray.200"}
-        p={"14px"}
-      >
-        <VStack>
-          <Center>
-            <Box boxSize={"180px"}>
-              <Image src="https://bit.ly/dan-abramov" alt="Dan Abramov" />
+      <Link to="/nft/1">
+        <GridItem
+          w="100%"
+          h="496px"
+          bg="transparent"
+          border="1px"
+          borderRadius={"5px"}
+          borderColor={"gray.200"}
+          p={"14px"}
+        >
+          <VStack>
+            <Center>
+              <Box boxSize={"180px"}>
+                <Image src="https://bit.ly/dan-abramov" alt="Dan Abramov" />
+              </Box>
+            </Center>
+            <Box>
+              <Text color={"#1890ff"}>
+                <b>Máy xét nghiệm sinh hóa tự động - BS-360E</b>
+              </Text>
+              <Text color={"gray.500"} fontSize={"14px"}>
+                <b>Model</b>: BS-360E
+              </Text>
+              <Text color={"gray.500"} fontSize={"14px"}>
+                <b>HSX</b>: Shenzhen Mindray Bio-Medical Electronics Co., Ltd.
+              </Text>
+              <Text color={"gray.500"} fontSize={"14px"}>
+                <b>Công ty</b>: Công ty TNHH Vạn Niên
+              </Text>
+              <Text color={"red.500"} fontSize={"24px"}>
+                <b>
+                  530.000.000<sup>VND</sup>
+                </b>
+              </Text>
+              <Text color={"black"} fontSize={"14px"}>
+                (Giá đã bao gồm VAT)
+              </Text>
+              <Button
+                border="1px"
+                borderColor={"9dc2ff"}
+                bgColor={"teal.200"}
+                colorScheme="teal"
+                leftIcon={<InfoIcon />}
+                variant="solid"
+                display={"block"}
+              >
+                Chi tiết thiết bị
+              </Button>
             </Box>
-          </Center>
-          <Box>
-            <Text color={"#1890ff"}>
-              <b>Máy xét nghiệm sinh hóa tự động - BS-360E</b>
-            </Text>
-            <Text color={"gray.500"} fontSize={"14px"}>
-              <b>Model</b>: BS-360E
-            </Text>
-            <Text color={"gray.500"} fontSize={"14px"}>
-              <b>HSX</b>: Shenzhen Mindray Bio-Medical Electronics Co., Ltd.
-            </Text>
-            <Text color={"gray.500"} fontSize={"14px"}>
-              <b>Công ty</b>: Công ty TNHH Vạn Niên
-            </Text>
-            <Text color={"red.500"} fontSize={"24px"}>
-              <b>
-                530.000.000<sup>VND</sup>
-              </b>
-            </Text>
-            <Text color={"black"} fontSize={"14px"}>
-              (Giá đã bao gồm VAT)
-            </Text>
-            <Button
-              border="1px"
-              borderColor={"9dc2ff"}
-              bgColor={"white"}
-              colorScheme="teal"
-              leftIcon={<InfoIcon />}
-              variant="solid"
-            >
-              Chi tiết thiết bị
-            </Button>
-          </Box>
-        </VStack>
-      </GridItem>
+          </VStack>
+        </GridItem>
+      </Link>
     );
   };
   const property = [
